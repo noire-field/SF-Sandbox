@@ -1,0 +1,168 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scripts/SandboxKinematicBallRotation.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/SandboxKinematicPlayer.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/PlayerSound.gd" type="Script" id=3]
+[ext_resource path="res://addons/proton_trail/proton_trail.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/CameraRoot.gd" type="Script" id=5]
+[ext_resource path="res://Sounds/Players/Jump01.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Players/Jump02.wav" type="AudioStream" id=7]
+[ext_resource path="res://SandboxPlayer.gd" type="Script" id=8]
+[ext_resource path="res://Arts/Trails/sword_trail.tres" type="Material" id=9]
+[ext_resource path="res://Models/Players/BB8/Body.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Models/Players/BB8/Head.tscn" type="PackedScene" id=12]
+
+[sub_resource type="SphereShape" id=1]
+radius = 2.0
+
+[sub_resource type="Animation" id=2]
+length = 3.0
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath("b88head_v2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray(  )
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("b88head_v2:rotation_degrees:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1, 2, 2.5, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("b88head_v2:rotation_degrees:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0, -40, -0.25, 0, 0.25, 0, -40, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1, 2, 2.5, 3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("b88head_v2:rotation_degrees:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1, 2, 2.5, 3 )
+}
+
+[node name="SandboxPlayer" type="Spatial"]
+script = ExtResource( 8 )
+
+[node name="Player" type="KinematicBody" parent="." groups=[
+"Players",
+]]
+collision_layer = 2147483649
+collision_mask = 15
+script = ExtResource( 2 )
+defaultmoveSpeed = 50.0
+runAcceleration = 35.0
+runDeacceleration = 35.0
+airAcceleration = 100.0
+airDecceleration = 0.0
+sideStrafeAcceleration = 1000.0
+sideStrafeSpeed = 2.0
+jumpSpeed = 27.0
+friction = 0.2
+airfriction = 0.0
+gravity = 55.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+shape = SubResource( 1 )
+
+[node name="Sound" type="Node" parent="Player"]
+script = ExtResource( 3 )
+
+[node name="Jump1" type="AudioStreamPlayer" parent="Player/Sound"]
+stream = ExtResource( 6 )
+
+[node name="Jump2" type="AudioStreamPlayer" parent="Player/Sound"]
+stream = ExtResource( 7 )
+
+[node name="ProtonTrail" type="Spatial" parent="Player"]
+script = ExtResource( 4 )
+material = ExtResource( 9 )
+life_time = 2.0
+
+[node name="Top" type="Position3D" parent="Player/ProtonTrail"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.392086, 0.238187, 0 )
+
+[node name="Bottom" type="Position3D" parent="Player/ProtonTrail"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.418054, -0.197777, 0 )
+
+[node name="BodyModel" type="Spatial" parent="Player"]
+script = ExtResource( 1 )
+
+[node name="b88body_v2" parent="Player/BodyModel" instance=ExtResource( 11 )]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 2.2, 0.221375, 0.0197333 )
+
+[node name="Costumes" type="Spatial" parent="Player"]
+
+[node name="b88head_v2" parent="Player/Costumes" instance=ExtResource( 12 )]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0.251424, 0 )
+
+[node name="Anime" type="AnimationPlayer" parent="Player/Costumes"]
+autoplay = "Idle"
+anims/Idle = SubResource( 2 )
+
+[node name="Wrapper" type="Spatial" parent="Player"]
+
+[node name="CameraRoot" type="Spatial" parent="Player/Wrapper"]
+visible = false
+script = ExtResource( 5 )
+
+[node name="H" type="Spatial" parent="Player/Wrapper/CameraRoot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00291, 0, 0 )
+
+[node name="V" type="Spatial" parent="Player/Wrapper/CameraRoot/H"]
+transform = Transform( 1, 0, 0, 0, 0.865379, 0.501118, 0, -0.501118, 0.865379, 0, 7, 0 )
+
+[node name="Camera" type="ClippedCamera" parent="Player/Wrapper/CameraRoot/H/V"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.011, 7 )
+current = true
+far = 800.0
+collision_mask = 2147483649
+
+[node name="WeaponRay" type="RayCast" parent="Player/Wrapper/CameraRoot/H/V/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.629 )
+enabled = true
+cast_to = Vector3( 0, 0, -1000 )
+collision_mask = 6
+collide_with_areas = true
+
+[node name="MovementDirector" type="Spatial" parent="Player/Wrapper/CameraRoot/H"]
+transform = Transform( 1, 0, 0, 0, 0.865379, 0.501118, 0, -0.501118, 0.865379, 0, 11.3474, 11.3891 )
+
+[node name="CameraRoot1st" type="Spatial" parent="Player/Wrapper"]
+visible = false
+script = ExtResource( 5 )
+
+[node name="H" type="Spatial" parent="Player/Wrapper/CameraRoot1st"]
+
+[node name="V" type="Spatial" parent="Player/Wrapper/CameraRoot1st/H"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0 )
+
+[node name="Camera" type="ClippedCamera" parent="Player/Wrapper/CameraRoot1st/H/V"]
+current = true
+far = 800.0
+collision_mask = 2147483649
+
+[node name="WeaponRay" type="RayCast" parent="Player/Wrapper/CameraRoot1st/H/V/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.629 )
+enabled = true
+cast_to = Vector3( 0, 0, -1000 )
+collision_mask = 6
+collide_with_areas = true
+
+[node name="MovementDirector" type="Spatial" parent="Player/Wrapper/CameraRoot1st/H"]
+transform = Transform( 1, 0, 0, 0, 0.865379, 0.501118, 0, -0.501118, 0.865379, 0, 11.3474, 11.3891 )

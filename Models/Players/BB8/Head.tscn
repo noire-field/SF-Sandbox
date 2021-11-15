@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Models/Players/BB8/Materials/Head/b88head_v2.fbx" type="PackedScene" id=3]
+
+[node name="b88head_v2" instance=ExtResource( 3 )]
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.882958, 0, 0 )
