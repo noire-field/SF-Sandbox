@@ -115,3 +115,31 @@ collide_with_areas = true
 
 [node name="MovementDirector" type="Spatial" parent="Player/Wrapper/CameraRoot1st/H"]
 transform = Transform( 1, 0, 0, 0, 0.865379, 0.501118, 0, -0.501118, 0.865379, 0, 11.3474, 11.3891 )
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="Speed" type="Label" parent="Canvas"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -329.739
+margin_top = 34.0895
+margin_right = -129.739
+margin_bottom = 54.0895
+rect_scale = Vector2( 3, 3 )
+text = "Speed: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FPS" type="Label" parent="Canvas"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -327.664
+margin_top = 90.5616
+margin_right = -127.664
+margin_bottom = 110.562
+rect_scale = Vector2( 3, 3 )
+text = "FPS: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -5,8 +5,8 @@ public class SandboxKinematicPlayer : KinematicBody
 {
 	public bool allowControl = true;
 	
-	//Label slable=null;
-	//Label flable=null;
+	Label slable=null;
+	Label flable=null;
 
 	//MOVEMENT VARIABLES
 	public float moveSpeed = 10.0f;
@@ -53,8 +53,8 @@ public class SandboxKinematicPlayer : KinematicBody
 		PlayerSound = GetNode<Node>("Sound");
 		ClientSetting = GetNode<Node>("/root/ClientSetting");
 		
-		//slable = GetNode<Label>("CanvasLayer/TextSpeed");
-		//flable = GetNode<Label>("CanvasLayer/TextFPS");
+		slable = GetNode<Label>("../Canvas/Speed");
+		flable = GetNode<Label>("../Canvas/FPS");
 	}
 	public override void _Input(InputEvent @event)
 	{
@@ -108,8 +108,8 @@ public class SandboxKinematicPlayer : KinematicBody
 	public override void _Process(float delta)
 	{
 		//if(allowControl) {
-			//slable.Text = "Speed: "+ ((int)absPlayerVelocity.Length()).ToString();
-			//flable.Text = "FPS: " + ((int)(1 / delta)).ToString();
+		slable.Text = "Speed: "+ ((int)absPlayerVelocity.Length()).ToString();
+		flable.Text = "FPS: " + ((int)(1 / delta)).ToString();
 		//}
 		
 		if (forcedTime > 0)
