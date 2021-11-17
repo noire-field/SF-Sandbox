@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/SandboxKinematicBallRotation.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/SandboxKinematicPlayer.cs" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sounds/Players/Jump02.wav" type="AudioStream" id=7]
 [ext_resource path="res://SandboxPlayer.gd" type="Script" id=8]
 [ext_resource path="res://Arts/Trails/sword_trail.tres" type="Material" id=9]
+[ext_resource path="res://Models/Players/BB8/Head.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Models/Players/BB8/Body.tscn" type="PackedScene" id=11]
 
 [sub_resource type="SphereShape" id=1]
@@ -63,6 +64,8 @@ script = ExtResource( 1 )
 [node name="B88" parent="Player/BodyModel" instance=ExtResource( 11 )]
 
 [node name="Costumes" type="Spatial" parent="Player"]
+
+[node name="b88head_v2" parent="Player/Costumes" instance=ExtResource( 10 )]
 
 [node name="Wrapper" type="Spatial" parent="Player"]
 

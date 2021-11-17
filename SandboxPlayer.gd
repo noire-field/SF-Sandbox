@@ -15,6 +15,7 @@ onready var playerWrapper = get_node("Player/Wrapper")
 func _ready():
 	get_node("Player/CollisionShape").scale = Vector3(playerScale, playerScale, playerScale)
 	get_node("Player/BodyModel/B88").scale = Vector3(playerScale, playerScale, playerScale)
+	get_node("Player/Costumes/b88head_v2").scale = Vector3(playerScale, playerScale, playerScale)
 	playerWrapper.get_node("CameraRoot/H/V/Camera").make_current()
 	
 	ClientSetting.mouseSensitivityH = mouseSen;

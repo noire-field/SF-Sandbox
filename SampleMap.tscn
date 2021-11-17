@@ -7,7 +7,7 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="SandboxPlayer" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.0047, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43767, 0 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 
