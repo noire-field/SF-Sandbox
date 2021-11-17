@@ -10,11 +10,14 @@ onready var playerWrapper = get_node("Player/Wrapper")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player.scale = Vector3(2.5, 2.5, 2.5)
+	var scale = 3.0
+	
+	get_node("Player/CollisionShape").scale = Vector3(scale, scale, scale)
+	get_node("Player/BodyModel/B88").scale = Vector3(scale, scale, scale)
 	playerWrapper.get_node("CameraRoot/H/V/Camera").make_current()
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
+#	get_node("Player/BodyModel").scale = Vector3(2.0, 2.0, 2.0)
