@@ -17,3 +17,6 @@ transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
 shape = SubResource( 1 )
+
+[node name="CSGSphere" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57535, 1.54593, 0 )

@@ -10,22 +10,22 @@ public class SandboxKinematicPlayer : KinematicBody
 
 	//MOVEMENT VARIABLES
 	public float moveSpeed = 10.0f;
-	[Export] public float defaultmoveSpeed = 10.0f;
+	[Export] public float defaultmoveSpeed = 35.0f;
 	public float forcedmoveSpeed = 10.0f;
 	public float forcedTime = 0.0f;
-	[Export]public float runAcceleration = 14.0f;
-	[Export]public float runDeacceleration = 10.0f;
-	[Export]public float airAcceleration = 14.0f;
-	[Export]public float airDecceleration = 10.0f;
+	[Export]public float runAcceleration = 25.0f;
+	[Export]public float runDeacceleration = 15.0f;
+	[Export]public float airAcceleration = 20.0f;
+	[Export]public float airDecceleration = 0.0f;
 	public float airControl = 0.1f;
-	[Export]public float sideStrafeAcceleration = 50.0f;
-	[Export]public float sideStrafeSpeed = 1.0f;
-	[Export]public float jumpSpeed = 8.0f;
+	[Export]public float sideStrafeAcceleration = 1000.0f;
+	[Export]public float sideStrafeSpeed = 0.7f;
+	[Export]public float jumpSpeed = 23.0f;
 
 	//CONSTANTS
-	[Export]public float friction = 5.25f;
-	[Export] public float airfriction = 5.25f;
-	[Export]public float gravity = 9.8f;
+	[Export]public float friction = 0.2f;
+	[Export] public float airfriction = 0.0f;
+	[Export]public float gravity = 55.0f;
 	//MOUSE
 	[Export] public float mouseSensitivity = 0.2f;
 	public float rotx = 0;

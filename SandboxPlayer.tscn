@@ -17,23 +17,12 @@
 [node name="SandboxPlayer" type="Spatial"]
 script = ExtResource( 8 )
 
-[node name="Player" type="KinematicBody" parent="." groups=[
-"Players",
-]]
+[node name="Player" type="KinematicBody" parent="." groups=["Players"]]
 collision_layer = 2147483649
 collision_mask = 15
 script = ExtResource( 2 )
-defaultmoveSpeed = 50.0
-runAcceleration = 35.0
-runDeacceleration = 35.0
-airAcceleration = 100.0
-airDecceleration = 0.0
-sideStrafeAcceleration = 1000.0
-sideStrafeSpeed = 2.0
-jumpSpeed = 27.0
+sideStrafeSpeed = 0.7
 friction = 0.2
-airfriction = 0.0
-gravity = 55.0
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
 shape = SubResource( 1 )
@@ -74,19 +63,19 @@ visible = false
 script = ExtResource( 5 )
 
 [node name="H" type="Spatial" parent="Player/Wrapper/CameraRoot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00291, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
 
 [node name="V" type="Spatial" parent="Player/Wrapper/CameraRoot/H"]
-transform = Transform( 1, 0, 0, 0, 0.865379, 0.501118, 0, -0.501118, 0.865379, 0, 7, 0 )
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 2, 0 )
 
 [node name="Camera" type="ClippedCamera" parent="Player/Wrapper/CameraRoot/H/V"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.011, 7 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
 current = true
 far = 800.0
 collision_mask = 2147483649
 
 [node name="WeaponRay" type="RayCast" parent="Player/Wrapper/CameraRoot/H/V/Camera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.629 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.23 )
 enabled = true
 cast_to = Vector3( 0, 0, -1000 )
 collision_mask = 6

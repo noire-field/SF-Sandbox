@@ -17,13 +17,15 @@ public class SandboxKinematicBallRotation : Spatial
 	void BallRotation(float delta)
 	{
 		SandboxKinematicPlayer ballspace = this.GetParent<SandboxKinematicPlayer>();
-
 		if(!ballspace.allowControl) return;
-
+		
+		Vector3 velocity = ballspace.playerVelocity;
+		velocity.x /= 2; velocity.y /= 2; velocity.z /= 2;
+		
 		Transform t = GlobalTransform;
 		Quat newrot= t.basis.Quat();
-		if (ballspace.playerVelocity.Cross(Vector3.Up).Length()>0)
-			newrot = new Quat((ballspace.playerVelocity.Cross(Vector3.Up)).Normalized(), -ballspace.playerVelocity.Length() * delta) * t.basis.Quat();
+		if (velocity.Cross(Vector3.Up).Length()>0)
+			newrot = new Quat((velocity.Cross(Vector3.Up)).Normalized(), -velocity.Length() * delta) * t.basis.Quat();
 		t.basis = new Basis(newrot);
 		GlobalTransform = t;
 	}
