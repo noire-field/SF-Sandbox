@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Sf- Sandbox"
-run/main_scene="res://SampleMap.tscn"
+run/main_scene="res://quake_style_map_grid.tscn"
 config/icon="res://icon.png"
 
 [autoload]
