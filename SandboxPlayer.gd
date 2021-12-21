@@ -18,6 +18,8 @@ func _ready():
 	#get_node("Player/Costumes/b88head_v2").scale = Vector3(playerScale, playerScale, playerScale)
 	playerWrapper.get_node("CameraRoot/H/V/Camera").make_current()
 	
+	player.add_to_group("Player")
+	
 	ClientSetting.mouseSensitivityH = mouseSen;
 	ClientSetting.mouseSensitivityV = mouseSen;
 

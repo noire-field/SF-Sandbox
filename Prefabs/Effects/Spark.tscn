@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Effects/Spark.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+params_blend_mode = 1
+albedo_color = Color( 0, 1, 0.415686, 1 )
+
+[sub_resource type="VisualShader" id=2]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx;
+
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Output:0
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+
+[sub_resource type="ShaderMaterial" id=3]
+next_pass = SubResource( 1 )
+shader = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.49
+spread = 122.86
+initial_velocity = 18.63
+initial_velocity_random = 0.57
+tangential_accel_random = 0.91
+scale = 0.1
+scale_random = 0.1
+
+[sub_resource type="SphereMesh" id=5]
+
+[node name="Spark" type="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.272196, -9.80404 )
+material_override = SubResource( 3 )
+cast_shadow = 0
+amount = 50
+lifetime = 0.63
+speed_scale = 2.0
+explosiveness = 1.0
+visibility_aabb = AABB( -3.94245, -4, -4, 7.8849, 8, 8 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
+script = ExtResource( 1 )

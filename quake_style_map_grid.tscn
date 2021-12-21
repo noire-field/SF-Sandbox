@@ -10,4 +10,4 @@
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4546, 16.9675, 15.5025 )
 
 [node name="JumpPad" parent="." index="199" instance=ExtResource( 3 )]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 14.349, 0.625856, 5.50378 )
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 15, 43.8862, 2.76505, 88.376 )

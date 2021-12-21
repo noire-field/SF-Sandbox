@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Arts/Textures/Effects/Smoke30Frames_0.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Effects/CircleSmoke.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.618297, 0.864979, 1 )
+colors = PoolColorArray( 1, 0, 0, 0, 0.486275, 0.486275, 0.486275, 0.227451, 0.223529, 0.223529, 0.223529, 0.129412, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 1
+emission_sphere_radius = 0.3
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity_random = 0.5
+angular_velocity = 40.0
+angular_velocity_random = 1.0
+linear_accel = 2.0
+linear_accel_random = 1.0
+radial_accel = 0.2
+radial_accel_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale = 2.0
+scale_random = 1.0
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 2 )
+anim_speed = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+
+[node name="Smoke" type="Particles"]
+emitting = false
+amount = 50
+one_shot = true
+randomness = 1.0
+local_coords = false
+draw_order = 2
+process_material = SubResource( 10 )
+draw_pass_1 = SubResource( 7 )
+script = ExtResource( 3 )

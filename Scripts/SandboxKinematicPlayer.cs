@@ -61,11 +61,14 @@ public class SandboxKinematicPlayer : KinematicBody
 		if(!allowControl) return;
 		
 		if (@event is InputEventMouseButton eventMouseButton) {
+			var weapon = GetNode("WeaponRight");
 			switch(eventMouseButton.ButtonIndex) {
 				case 1: 
-				
-					
+					weapon.Call("WeaponFire", !eventMouseButton.Pressed);
 					break;
+				//case 2: 
+				//	weapon.Call("WeaponSubFire", !eventMouseButton.Pressed);
+				//	break;
 			}
 			
 			
@@ -411,6 +414,13 @@ public class SandboxKinematicPlayer : KinematicBody
 
 
 		return wish;
+	}
+	
+	public void ForceFullVelocity(Vector3 velocity)
+	{
+		playerVelocity.x = velocity.x;
+		playerVelocity.y = velocity.y;
+		playerVelocity.z = velocity.z;
 	}
 
 

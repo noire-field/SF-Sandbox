@@ -1,0 +1,134 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Prefabs/Weapons/RocketLauncher/FBX/rocket launcher/RocketLauncher.fbx" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/Weapons/RocketLauncher/FBX/rocket launcher/textures/Weapons_guns_Normal.png" type="Texture" id=2]
+[ext_resource path="res://Prefabs/Weapons/RocketLauncher/FBX/rocket launcher/textures/Weapons_guns_AO.png" type="Texture" id=3]
+[ext_resource path="res://Prefabs/Weapons/RocketLauncher/FBX/rocket launcher/textures/Weapons_guns_Albedo.png" type="Texture" id=4]
+[ext_resource path="res://Prefabs/Weapons/RocketLauncher/FBX/rocket launcher/textures/Weapons_guns_MetallicSmoothness.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Weapons/RocketLauncher.gd" type="Script" id=6]
+[ext_resource path="res://Sounds/Weapons/RocketLauncher/Firing.wav" type="AudioStream" id=7]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 4 )
+metallic = 0.68
+metallic_specular = 0.61
+metallic_texture = ExtResource( 5 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 2 )
+ao_enabled = true
+ao_light_affect = 0.77
+ao_texture = ExtResource( 3 )
+ao_on_uv2 = false
+ao_texture_channel = 0
+
+[sub_resource type="Animation" id=2]
+resource_name = "Firing"
+length = 0.5
+step = 0.05
+tracks/0/type = "transform"
+tracks/0/path = NodePath("RootNode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray(  )
+tracks/1/type = "value"
+tracks/1/path = NodePath("RootNode:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -0.289491, 0.698397 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RootNode:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( -23.984, -180, -3.84897e-06 ), Vector3( 0, -180, 0 ) ]
+}
+
+[node name="RocketLauncher" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.214551, -0.184816 )
+script = ExtResource( 6 )
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform( -3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, 0, 0, 0 )
+
+[node name="rocketlauncher_body" parent="RootNode" index="0"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_screen_arm_02" parent="RootNode/rocketlauncher_body" index="0"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_screen_arm_04" parent="RootNode/rocketlauncher_body" index="1"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_dial_02" parent="RootNode/rocketlauncher_body" index="2"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_dial_01" parent="RootNode/rocketlauncher_body" index="3"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_handle" parent="RootNode/rocketlauncher_body" index="4"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_front" parent="RootNode/rocketlauncher_body" index="5"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_barrel_02" parent="RootNode/rocketlauncher_body" index="6"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_barrel_01" parent="RootNode/rocketlauncher_body" index="7"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_barrel_03" parent="RootNode/rocketlauncher_body" index="8"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_trigger" parent="RootNode/rocketlauncher_body" index="9"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_screen_arm_03" parent="RootNode/rocketlauncher_body" index="10"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_screen" parent="RootNode/rocketlauncher_body" index="11"]
+material/0 = SubResource( 1 )
+
+[node name="rocketlauncher_screen_arm_01" parent="RootNode/rocketlauncher_body" index="12"]
+material/0 = SubResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="." index="1"]
+visible = false
+
+[node name="Muzzleflash" type="Spatial" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1.09969 )
+
+[node name="RayCast" type="RayCast" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1.1 )
+enabled = true
+cast_to = Vector3( 0, 0, -2000 )
+collision_mask = 2147483663
+
+[node name="Anime" type="AnimationPlayer" parent="." index="4"]
+anims/Firing = SubResource( 2 )
+
+[node name="Sounds" type="Spatial" parent="." index="5"]
+
+[node name="Firing3D" type="AudioStreamPlayer3D" parent="Sounds" index="0"]
+stream = ExtResource( 7 )
+unit_db = 1.0
+unit_size = 7.0
+
+[node name="Firing" type="AudioStreamPlayer" parent="Sounds" index="1"]
+stream = ExtResource( 7 )
+volume_db = -15.0

@@ -20,6 +20,9 @@ func _ready():
 
 
 func OnEnter(body):
+	if not body.is_in_group("Player"):
+		return
+		
 	var velocity;
 	var magnetude;
 	

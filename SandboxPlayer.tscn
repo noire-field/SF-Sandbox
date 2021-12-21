@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/SandboxKinematicBallRotation.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/SandboxKinematicPlayer.cs" type="Script" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Arts/Trails/sword_trail.tres" type="Material" id=9]
 [ext_resource path="res://Models/Players/BB8/Head.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Models/Players/BB8/Body.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/Weapons/RocketLauncher/RocketLauncher.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Player/WeaponRight.gd" type="Script" id=13]
 
 [sub_resource type="SphereShape" id=1]
 
@@ -107,6 +109,13 @@ collide_with_areas = true
 
 [node name="MovementDirector" type="Spatial" parent="Player/Wrapper/CameraRoot1st/H"]
 transform = Transform( 1, 0, 0, 0, 0.865379, 0.501118, 0, -0.501118, 0.865379, 0, 11.3474, 11.3891 )
+
+[node name="WeaponRight" type="Spatial" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.75, 0 )
+script = ExtResource( 13 )
+
+[node name="RocketLauncher" parent="Player/WeaponRight" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.207231, -0.214551, -0.184816 )
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
