@@ -14,7 +14,7 @@ public class ForceSpeed : Area
 		if (!another.HasMethod("ForceVelocity"))
 			return;
 		
-		KinematicPlayer player = GetNode<KinematicPlayer>(another.GetPath());
+		SandboxKinematicPlayer player = GetNode<SandboxKinematicPlayer>(another.GetPath());
 		if (player == null)
 		{
 			return;

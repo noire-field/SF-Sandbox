@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://quake_style_map_grid.gltf" type="PackedScene" id=1]
 [ext_resource path="res://SandboxPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/MapProps/JumpPad.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/MapProps/PushPad.tscn" type="PackedScene" id=4]
 
 [node name="quake_style_map_grid" instance=ExtResource( 1 )]
 
@@ -11,3 +12,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4546, 16.9675, 15.5025 )
 
 [node name="JumpPad" parent="." index="199" instance=ExtResource( 3 )]
 transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 15, 43.8862, 2.76505, 88.376 )
+
+[node name="Area" parent="." index="200" instance=ExtResource( 4 )]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -4.09084, 1.1424, 50.3811 )
